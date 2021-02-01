@@ -4,13 +4,22 @@ import java.util.*;
 
 public class enroll {
 
-    students                        Student         = new students();
+    public students                 Student         = new students();
     public ArrayList<enrollment>    EnrollmentList  = new ArrayList<> ();
-    public ArrayList<coursedegree>  CourseList      = new ArrayList<> ();
- 
+    public ArrayList<courses>  CourseList      = new ArrayList<> ();
+    public int term;
+    public int schoolyear;
+    
     public enroll() {
+        term = 0;
+        schoolyear = 0;
+        Student.studentid = 0;
+        Student.completename = "";
+        Student.degreeid = "";
+        CourseList.clear();
         EnrollmentList.clear();
-         try{
+    
+        /*try{
             Connection conn;     
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345678");
             System.out.println("Connection Successful");
@@ -34,7 +43,7 @@ public class enroll {
         } catch (SQLException e) {
             System.out.println(e.getMessage());  
         }  
-    
+        */
           
     };// perform all the necessary data loading from DB
     public int clearEnrollment ()   {
@@ -49,25 +58,27 @@ public class enroll {
 
             System.out.println("Connection Successful");
             
-            PreparedStatement pstmt = conn.prepareStatement(  "SELECT courseid, degree "
-                                                            + "FROM coursedegree"
-                                                            + "WHERE degree=? AND courseid NOT IN (SELECT courseid"
-                                                                                                + "FROM enrollment"
+            PreparedStatement pstmt = conn.prepareStatement(  "SELECT c.courseid, c.coursename, c.department "
+                                                            + "FROM courses c JOIN coursedegree cd ON c.courseid=cd.courseid "
+                                                            + "WHERE cd.degree=? AND c.courseid NOT IN (SELECT e.courseid "
+                                                                                                + "FROM enrollment e "
                                                                                                 + "WHERE studentid=?)");
             
             pstmt.setString(1, Student.degreeid);
             pstmt.setInt(2, Student.studentid);
                         
             ResultSet rs = pstmt.executeQuery();
+
             CourseList.clear();
             while(rs.next()){
-                coursedegree cd = new coursedegree();
-                cd.courseid = rs.getString("courseid");
-                cd.degree = rs.getString("degree");
+                courses c = new courses();
+                c.courseid = rs.getString("courseid");
+                c.coursename = rs.getString("coursename");
+                c.department = rs.getString("department");
                 
                 // If not in memory
-                if(!CourseList.contains(cd))
-                    CourseList.add(cd);    
+                if(!CourseList.contains(c))
+                    CourseList.add(c);    
             }
               
             rs.close();
@@ -98,5 +109,18 @@ public class enroll {
         
     
     }   // saves enrollment data into the Database
-    
+   
+//    public static void main(String[] args){
+//       
+//       enroll e = new enroll(); 
+//       e.Student.studentid = 1010002;
+//       e.Student.degreeid = "BSCS";
+//
+//       e.term = 1;
+//       e.schoolyear = 20192020;
+//       
+//       e.loadCourses();
+//        System.out.println((e.CourseList).toString());
+//}
+//    
 }

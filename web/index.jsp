@@ -22,7 +22,7 @@ and open the template in the editor.
             <ul style="list-style-type: none">
                 <li><a href="studentmaintenance.jsp">Student Maintenance</a></li>
                 <li><a href="coursemaintenance.jsp">Course Maintenance</a></li>
-                <li><a href="#">Enroll</a></li>
+                <li><a href="enrollmentmenu.jsp">Enroll</a></li>
                 <li><a href="drop.jsp">Drop</a></li>
                 <li><a href="report.jsp">Report</a></li>                
             </ul>
