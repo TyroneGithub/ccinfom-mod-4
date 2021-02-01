@@ -1,17 +1,15 @@
 <%-- 
-    Document   : submitdrop
-    Created on : 01 27, 21, 12:08:26 PM
+    Document   : submitenroll
+    Created on : 02 1, 21, 1:15:13 PM
     Author     : ccslearner
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*, java.util.*, java.util.ArrayList" %>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
+        <title>JSP Page</title>
         <style>
             table {
               width:100%;
@@ -33,11 +31,11 @@
         </style>
     </head>
     <body>
-         <jsp:useBean id="dropBean" class="enrollment.drop" scope = "session"/>
+         <jsp:useBean id="enrollBean" class="enrollment.enroll" scope = "session"/>
 
-          <%if (dropBean.DropList.size() != 0){%>
-             <%= "Successfully dropped your chosen courses." %>
-            <h3 style="text-align: center">List of Dropped Courses</h3>
+          <%if (enrollBean.EnrollmentList.size() != 0){%>
+             <%= "Successfully added the courses." %>
+            <h3 style="text-align: center">List of New Courses Enrolled</h3>
             <table style="width:100%">
                 <tr>
                     <th>COURSE ID</th>
@@ -46,24 +44,24 @@
                 </tr>
                
             <% 
-                for (int i = 0; i < dropBean.DropList.size(); i++){ 
+                for (int i = 0; i < enrollBean.EnrollmentList.size(); i++){ 
             %>
                 <tr>
                     <td>
-                        <%= dropBean.DropList.get(i).courseid %>
+                        <%= enrollBean.EnrollmentList.get(i).courseid %>
                     </td>
                     <td>
-                        <%= dropBean.DropList.get(i).term %>                        
+                        <%= enrollBean.EnrollmentList.get(i).term %>                        
                     </td>
                     <td>
-                        <%= dropBean.DropList.get(i).schoolyear %>                        
+                        <%= enrollBean.EnrollmentList.get(i).schoolyear %>                        
                     </td>
                 </tr>
                 <%}
                 %>
                 </table>
               <%
-                dropBean.submitDrop();
+                enrollBean.confirmEnrollment();
                 %>
                 
             <% } else{%>
@@ -72,10 +70,9 @@
                     <br/>
                     
                 <%}
-                dropBean.resetDrop();
-                    %>
-            </table>
+                enrollBean.clearEnrollment();
+                %>
         <br/>
-        <a href="dropmenu.jsp">Return to Drop Menu</a><br/>
+        <a href="index.jsp">Return to Main Menu</a><br/>
         </body>
 </html> 
