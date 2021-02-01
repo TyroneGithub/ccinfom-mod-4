@@ -26,7 +26,7 @@
             <p>Record was successfully deleted</p>    
         <% }
         %>
-        <a href="coursemaintenance.jsp">Return to Course Maintenance</a><br/>
+        <a href="studentmaintenance.jsp">Return to Student Maintenance</a><br/>
         <a href="index.jsp">Return to Main Menu</a>
     </body>
 </html>

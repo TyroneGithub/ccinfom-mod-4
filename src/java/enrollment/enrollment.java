@@ -35,7 +35,9 @@ public class enrollment {
             pstmt.setInt(2, term);
             pstmt.setInt(3, schoolyear);
             pstmt.setInt(4, studentid);
-                        
+            pstmt.setString(5, courseid);
+            pstmt.setInt(6, schoolyear);
+
             pstmt.executeUpdate();
             pstmt.close();
             conn.close();
@@ -165,13 +167,11 @@ public class enrollment {
        v_enrollment.addRecord();
        */
        // TEST MOD
-       /*
-       v_enrollment.studentid = 10100020;
-       v_enrollment.courseid = "CCPROG3";
-       v_enrollment.term = 1;
-       v_enrollment.schoolyear = 20202021;
+       v_enrollment.studentid = 10100002;
+       v_enrollment.courseid = "CCICOMP";
+       v_enrollment.term = 3;
+       v_enrollment.schoolyear = 20192020;
        v_enrollment.modRecord();
-      */
        
        // TEST DEL
        /* 
@@ -184,18 +184,18 @@ public class enrollment {
        
        // TEST VIEW
        
-       v_enrollment.studentid = 10100001;
-        v_enrollment.viewRecord();
-        System.out.println("SHOWING RECORD OF STUDENTID: " + v_enrollment.studentid);
-        System.out.println("------------------------------------------------------");
-        System.out.println("COURSEID \t TERM \t SCHOOLYEAR");
-
-        for(int i = 0; i < v_enrollment.studentEnrollList.size(); i++){
-            enrollment e = new enrollment();
-            e = v_enrollment.studentEnrollList.get(i);
-            System.out.printf("%s \t %d \t %d \n",e.courseid, e.term, e.schoolyear);
-        
-        }
+//        v_enrollment.studentid = 10100001;
+//        v_enrollment.viewRecord();
+//        System.out.println("SHOWING RECORD OF STUDENTID: " + v_enrollment.studentid);
+//        System.out.println("------------------------------------------------------");
+//        System.out.println("COURSEID \t TERM \t SCHOOLYEAR");
+//
+//        for(int i = 0; i < v_enrollment.studentEnrollList.size(); i++){
+//            enrollment e = new enrollment();
+//            e = v_enrollment.studentEnrollList.get(i);
+//            System.out.printf("%s \t %d \t %d \n",e.courseid, e.term, e.schoolyear);
+//        
+//        }
        
        
        

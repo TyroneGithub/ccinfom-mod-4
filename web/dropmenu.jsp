@@ -50,7 +50,7 @@
           <%} 
             else if (result == 2) {%>       
                 <p>You are not currently enrolled in any course.</p>
-          <%}
+          <%} 
             else {%>   
             <h3 style="text-align: center">Enrolled Courses</h3>
             <table style="width:100%">

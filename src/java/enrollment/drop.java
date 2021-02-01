@@ -48,17 +48,14 @@ public class drop {
                 e.schoolyear = rs.getInt ("schoolyear");
                 EnrollmentList.add(e);
             }
+            rs.close();
+            pstmt.close();
+            conn.close();
             
             if (EnrollmentList.isEmpty()){
-                rs.close();
-                pstmt.close();
-                conn.close();
                 return 2; 
             }
             else {
-                rs.close();
-                pstmt.close();
-                conn.close();
                 return 1; 
             }
             

@@ -10,7 +10,7 @@
     <head>
         <title>Web Application | Enrollment</title>
         <style>
-                        table {
+            table {
               width:100%;
             }
             table, th, td {
@@ -41,13 +41,19 @@
                 
                 // loads student's degree (used in loadcourses)
                 studentBean.viewRecord();
-                            
-                enrollBean.Student.studentid = studentBean.studentid;
-                enrollBean.Student.degreeid = studentBean.degreeid;
                 
-                enrollBean.term =  Integer.parseInt(request.getParameter("term"));
-                enrollBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
-                result = enrollBean.loadCourses();
+                if (!studentBean.completename.equals("")){
+                    enrollBean.Student.studentid = studentBean.studentid;
+                    enrollBean.Student.degreeid = studentBean.degreeid; 
+                    enrollBean.term =  Integer.parseInt(request.getParameter("term"));
+                    enrollBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
+                    result = enrollBean.loadCourses();
+                }else{
+                    result = 3;
+                }
+                
+                
+                
             }else{
                 
                 if(enrollBean.CourseList.size() > 0)
@@ -63,8 +69,10 @@
           <%} 
             else if (result == 2) {%>       
                 <p>No Courses available to enroll</p>
-          <%}
-            else {%>   
+          <%} else if (result == 3) { %>
+                <p>No student found</p>
+          <% 
+            } else {%>   
             <h3 style="text-align: center">Enrolled Courses</h3>
             <table style="width:100%">
                 <tr>
