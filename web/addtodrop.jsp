@@ -56,11 +56,11 @@
           <%} else{%>
                 <p>Could not add course to drop cart.</p>
           <%}%>
-          <%= dropBean.courseid %>
-            <%= dropBean.Student.studentid %>
-            <%= dropBean.term %>
-            <%= dropBean.schoolyear %>
-            <%= "dropbean droplist size " + dropBean.DropList.size() %>
+            <%--<%= dropBean.courseid %>--%>
+            <%--<%= dropBean.Student.studentid %>--%>
+            <%--<%= dropBean.term %>--%>
+            <%--<%= dropBean.schoolyear %>--%>
+            <%--<%= "dropbean droplist size " + dropBean.DropList.size() %>--%>
           
           <%if (dropBean.DropList.size() != 0){%>
             <h3 style="text-align: center">Drop Course List</h3>

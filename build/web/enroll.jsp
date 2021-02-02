@@ -73,7 +73,7 @@
                 <p>No student found</p>
           <% 
             } else {%>   
-            <h3 style="text-align: center">Enrolled Courses</h3>
+            <h3 style="text-align: center">Available Courses</h3>
             <table style="width:100%">
                 <tr>
                     <th>COURSE ID</th>
