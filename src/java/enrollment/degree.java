@@ -100,7 +100,7 @@ public class degree {
             ResultSet rs = pstmt.executeQuery();
             
            while (rs.next()) {
-                degreename        = rs.getString("degreename");
+                degreename = rs.getString("degreename");
            }
             rs.close();             
             pstmt.close();

@@ -27,8 +27,9 @@ public class coursedegree {
             PreparedStatement pstmt = conn.prepareStatement("UPDATE coursedegree SET courseid = ?, degree = ? WHERE degree = ? AND courseid = ?");
 
             pstmt.setString (1, tempCourse);
-            pstmt.setString (2, degree);
-            pstmt.setString (3, courseid);
+            pstmt.setString (2, tempDegree);
+            pstmt.setString (3, degree);
+            pstmt.setString (4, courseid);
 
             
 

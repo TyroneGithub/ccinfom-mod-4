@@ -25,7 +25,7 @@ public class courses {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345678");
             
             System.out.println("Connection Successful");
-            // 4. Prepare our INSERT Statement
+            
             PreparedStatement pstmt = conn.prepareStatement("UPDATE courses          " +
                                                             "SET    coursename   = ?, department = ?" + 
                                                             "WHERE  courseid = ? ");
@@ -133,17 +133,17 @@ public class courses {
     public static void main(String args[]) {
         courses cs = new courses();
         
-        cs.courseid = "CCAPDEV";
-        cs.coursename = "Web Application Development";
-        cs.department = "Information Technology";
-        
-        //cs.addRecord();
-        //cs.delRecord();
-        //cs.modRecord();
-        
-        cs.courseid = "CCPROG1";
-        cs.viewRecord();
-        System.out.println (cs.coursename);
-        System.out.println (cs.department);
+//        cs.courseid = "CCAPDEV";
+//        cs.coursename = "Web Application Development";
+//        cs.department = "Information Technology";
+//        
+//        //cs.addRecord();
+//        //cs.delRecord();
+//        //cs.modRecord();
+//        
+//        cs.courseid = "CCPROG1";
+//        cs.viewRecord();
+//        System.out.println (cs.coursename);
+//        System.out.println (cs.department);
     }
 }

@@ -125,14 +125,12 @@ public class enrollment {
             PreparedStatement pstmt = conn.prepareStatement("SELECT courseid, term, "
                     + "schoolyear, studentid FROM enrollment "
                     + "WHERE studentid = ? ");
-            
-            pstmt.setString(1, courseid);
-            pstmt.setInt(2, studentid);
-            pstmt.setInt(3, term);
-            pstmt.setInt(4, schoolyear);
+
+            pstmt.setInt(1, studentid);
 
                         
             ResultSet rs = pstmt.executeQuery();
+
             studentEnrollList.clear();
             while(rs.next()){
                 
@@ -174,15 +172,15 @@ public class enrollment {
        v_enrollment.schoolyear = 20212022;
        v_enrollment.addRecord();
        */
-       // TEST MOD
-//       v_enrollment.studentid = 10100001;
-//       v_enrollment.courseid = "CCINFOM";
-//       v_enrollment.term = 2;
+//        TEST MOD
+//       v_enrollment.studentid = 10100005;
+//       v_enrollment.courseid = "CCPROG1";
+//       v_enrollment.term = 1;
 //       v_enrollment.schoolyear = 20192020;
 //       // change to
-//       v_enrollment.newstudentid = 10100012;
-//       v_enrollment.newcourseid = "CCINFOM";
-//       v_enrollment.newterm = 3;
+//       v_enrollment.newstudentid = 10100005;
+//       v_enrollment.newcourseid = "CCPROG3";
+//       v_enrollment.newterm = 1;
 //       v_enrollment.newschoolyear = 20202021;
 //
 //       v_enrollment.modRecord();
@@ -196,5 +194,13 @@ public class enrollment {
         v_enrollment.delRecord();
         */       
        
+//       v_enrollment.studentid = 10100005;
+//       v_enrollment.viewRecord();
+////       System.out.println("hello");
+//       for (int i = 0; i < v_enrollment.studentEnrollList.size(); i++){
+//           System.out.println(v_enrollment.studentEnrollList.get(i).courseid);
+//       }
+//       System.out.println("hello2");
+
     }
 }
