@@ -9,6 +9,13 @@ public class enrollment {
         public String   courseid;
         public int      term;
         public int      schoolyear;
+        
+        // Used for Mod
+        public int      newstudentid;
+        public String   newcourseid;
+        public int      newterm;
+        public int      newschoolyear;
+
         //public enrollment eTemp = new enrollment(); 
         public ArrayList<enrollment> studentEnrollList = new ArrayList<>();
         
@@ -29,14 +36,16 @@ public class enrollment {
 
             System.out.println("Connection Successful");
             
-            PreparedStatement pstmt = conn.prepareStatement("UPDATE  enrollment set courseid=?, term=?, schoolyear=? WHERE studentid=? AND courseid=? AND schoolyear=?");
+            PreparedStatement pstmt = conn.prepareStatement("UPDATE  enrollment set studentid=?, courseid=?, term=?, schoolyear=? WHERE studentid=? AND courseid=? AND term=? AND schoolyear=?");
             
-            pstmt.setString(1, courseid);
-            pstmt.setInt(2, term);
-            pstmt.setInt(3, schoolyear);
-            pstmt.setInt(4, studentid);
-            pstmt.setString(5, courseid);
-            pstmt.setInt(6, schoolyear);
+            pstmt.setInt(1, newstudentid);
+            pstmt.setString(2, newcourseid);
+            pstmt.setInt(3, newterm);
+            pstmt.setInt(4, newschoolyear);
+            pstmt.setInt(5, studentid);
+            pstmt.setString(6, courseid);
+            pstmt.setInt(7, term);
+            pstmt.setInt(8, schoolyear);
 
             pstmt.executeUpdate();
             pstmt.close();
@@ -167,12 +176,18 @@ public class enrollment {
        v_enrollment.addRecord();
        */
        // TEST MOD
-       v_enrollment.studentid = 10100002;
-       v_enrollment.courseid = "CCICOMP";
-       v_enrollment.term = 3;
-       v_enrollment.schoolyear = 20192020;
-       v_enrollment.modRecord();
-       
+//       v_enrollment.studentid = 10100001;
+//       v_enrollment.courseid = "CCINFOM";
+//       v_enrollment.term = 2;
+//       v_enrollment.schoolyear = 20192020;
+//       // change to
+//       v_enrollment.newstudentid = 10100012;
+//       v_enrollment.newcourseid = "CCINFOM";
+//       v_enrollment.newterm = 3;
+//       v_enrollment.newschoolyear = 20202021;
+//
+//       v_enrollment.modRecord();
+//       
        // TEST DEL
        /* 
         v_enrollment.studentid = 10100020;
@@ -180,25 +195,7 @@ public class enrollment {
         v_enrollment.term = 1;
         v_enrollment.schoolyear = 20202021;
         v_enrollment.delRecord();
-        */
-       
-       // TEST VIEW
-       
-//        v_enrollment.studentid = 10100001;
-//        v_enrollment.viewRecord();
-//        System.out.println("SHOWING RECORD OF STUDENTID: " + v_enrollment.studentid);
-//        System.out.println("------------------------------------------------------");
-//        System.out.println("COURSEID \t TERM \t SCHOOLYEAR");
-//
-//        for(int i = 0; i < v_enrollment.studentEnrollList.size(); i++){
-//            enrollment e = new enrollment();
-//            e = v_enrollment.studentEnrollList.get(i);
-//            System.out.printf("%s \t %d \t %d \n",e.courseid, e.term, e.schoolyear);
-//        
-//        }
-       
-       
-       
+        */       
        
     }
 }
