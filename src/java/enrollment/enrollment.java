@@ -124,8 +124,7 @@ public class enrollment {
             
             PreparedStatement pstmt = conn.prepareStatement("SELECT courseid, term, "
                     + "schoolyear, studentid FROM enrollment "
-                    + "WHERE courseid = ? AND studentid = ? "
-                    + "AND term = ? AND schoolyear =?");
+                    + "WHERE studentid = ? ");
             
             pstmt.setString(1, courseid);
             pstmt.setInt(2, studentid);
@@ -134,7 +133,7 @@ public class enrollment {
 
                         
             ResultSet rs = pstmt.executeQuery();
-//            studentEnrollList.clear();
+            studentEnrollList.clear();
             while(rs.next()){
                 
                 enrollment e = new enrollment();
@@ -144,7 +143,7 @@ public class enrollment {
                 e.studentid = rs.getInt("studentid");
 
                 
-//                studentEnrollList.add(e);
+                studentEnrollList.add(e);
                 
             }
             
