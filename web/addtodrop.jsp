@@ -38,7 +38,7 @@
     </head>
     <body>
          <jsp:useBean id="dropBean" class="enrollment.drop" scope = "session"/>         
-         <jsp:useBean id="enrollmentBean" class="enrollment.enrollment" scope = "session"/>
+         <jsp:useBean id="enrollmentBean" class="enrollment.enrollment" scope = "page"/>
 
          <%   dropBean.courseid = request.getParameter("courseid");
          

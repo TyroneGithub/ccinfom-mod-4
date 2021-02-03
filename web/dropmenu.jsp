@@ -37,35 +37,39 @@
         <jsp:useBean id="studentBean" class="enrollment.students" scope="session" />
 
         <%
-            int result =0;
-            if (studentBean.studentid == 0){
-                studentBean.studentid = Integer.parseInt(request.getParameter("studentid"));
-                studentBean.viewRecord();
-                if(!studentBean.completename.equals("")){
-                    dropBean.Student.studentid = studentBean.studentid;
-                    dropBean.Student.degreeid = studentBean.degreeid; 
-                    dropBean.Student.completename = studentBean.completename;
-                    dropBean.term =  Integer.parseInt(request.getParameter("term"));
-                    dropBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
-                    result = dropBean.loadCourses();
-                } else{
-                    result = 3;
-                }
-
-            } else{
-                if (dropBean.DropList.size() > 0){
-                    result = 1;
-                }else{
-                    result = 2;
-                }
-            }
+            
+//            int result =0;
 //            if (dropBean.Student.studentid == 0){
 //                dropBean.Student.studentid = Integer.parseInt(request.getParameter("studentid"));
-//                dropBean.term =  Integer.parseInt(request.getParameter("term"));
-//                dropBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
+//                dropBean.Student.viewRecord();
+//                System.out.println ("VIEW RECORD CALLED");
+//                if(!dropBean.Student.completename.equals("")){
+//                    dropBean.term =  Integer.parseInt(request.getParameter("term"));
+//                    dropBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
+//                    result = dropBean.loadCourses();
+//                    System.out.println ("COURSES LOADED");
+//                } else{
+//                    result = 3;
+//                }
+//
+//            } else{
+//                if (dropBean.DropList.size() > 0){
+//                    result = 1;
+//                }else{
+//                    result = 2;
+//                }
 //            }
-//           
-//            int result = dropBean.loadCourses();
+
+            if (dropBean.Student.studentid == 0){
+                dropBean.Student.studentid = Integer.parseInt(request.getParameter("studentid"));
+                dropBean.term =  Integer.parseInt(request.getParameter("term"));
+                dropBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
+                dropBean.Student.viewRecord();
+                
+            }
+           
+            int result = dropBean.loadCourses();
+            
             if (result==0) {%>       
                 <p>Record was not successfully retrieved.</p>
           <%} 

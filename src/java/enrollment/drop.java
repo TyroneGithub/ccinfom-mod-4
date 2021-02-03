@@ -9,7 +9,7 @@ import java.util.*;
 
 public class drop {
   
-    public students                        Student         = new students();
+    public students                 Student         = new students();
     public ArrayList<enrollment>    EnrollmentList  = new ArrayList<> ();
     public ArrayList<enrollment>    DropList        = new ArrayList<> ();
     public int schoolyear;

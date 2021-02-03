@@ -10,6 +10,14 @@
     <body>
         <div style="margin-left: 16px">
             <h3>Drop Menu</h3>
+            <jsp:useBean id="dropBean" class="enrollment.drop" scope="session" />
+            <jsp:useBean id="studentBean" class="enrollment.students" scope="session" />
+            <%
+            // reset when user changes
+            studentBean.studentid = 0;
+            dropBean.resetDrop();
+            dropBean.Student.studentid = 0;
+            %>
             <form name="dropmenu" action="dropmenu.jsp" method="POST">
                 Student ID:  <input type="text" name="studentid" id="studentid"/>
                 <br/>
