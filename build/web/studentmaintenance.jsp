@@ -32,12 +32,20 @@
             </form>
         </div>        
         <div style="margin-left: 16px">
-            <h3>Modify/ View Student</h3>
+            <h3>Modify Student</h3>
+            <form name="modstudent" action="view_mod_student.jsp" method="POST">
+                Student ID: <input type="text" name="studentid" id="studentid"/>
+                <input type="submit" value="Modify Student" name="modstudent"/>
+            </form>
+        </div>   
+        <div style="margin-left: 16px">
+            <h3>View Student</h3>
             <form name="viewstudent" action="view_student.jsp" method="POST">
                 Student ID: <input type="text" name="studentid" id="studentid"/>
                 <input type="submit" value="View Student" name="viewstudent"/>
             </form>
         </div>   
+        
         <br/>
         <a href="index.jsp">Return to Main Menu</a>
     </body>

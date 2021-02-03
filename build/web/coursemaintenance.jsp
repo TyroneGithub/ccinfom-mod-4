@@ -33,46 +33,21 @@
             </form>
         </div>        
         <div style="margin-left: 16px">
-            <h3>Modify/ View Course</h3>
+            <h3>Modify Course</h3>
+            <form name="modcourse" action="view_mod_course.jsp" method="POST">
+                Course ID: <input type="text" name="courseid" id="courseid"/>
+                <input type="submit" value="View Course" name="modcourse"/>
+            </form>
+        </div>   
+        <div style="margin-left: 16px">
+            <h3>View Course</h3>
             <form name="viewcourse" action="view_course.jsp" method="POST">
                 Course ID: <input type="text" name="courseid" id="courseid"/>
                 <input type="submit" value="View Course" name="viewcourse"/>
             </form>
         </div>   
-        <div style="margin-left: 16px">
-            <h3>Add Course Degree</h3>
-            <form name="addcoursedegree" action="add_course_degree.jsp" method="POST">
-                Course ID: <input type="text" name="courseid" id="courseid"/>
-                <br/>
-                Degree: <input type="text" name="degree" id="degree"/>
-                <br/>
-                <input type="submit" value="Add Course Degree" name="addcoursedegree"/>
-            </form>
-        </div>
-        <div style="margin-left: 16px">
-            <h3>Delete Course</h3>
-            <form name="delcoursedegree" action="del_course_degree.jsp" method="POST">
-                Course ID: <input type="text" name="courseid" id="courseid"/>
-                <br/>
-                Degree: <input type="text" name="degree" id="degree"/>
-                <br/>
-                <input type="submit" value="Delete Course Degree" name="delcoursedegree"/>
-            </form>
-        </div>        
-        <div style="margin-left: 16px">
-            <h3>Modify/ View Course Degree</h3>
-            <form name="viewcoursedegree" action="view_course_degree.jsp" method="POST">
-                Course ID: <input type="text" name="courseid" id="courseid"/>
-                <br/>
-                Degree: <input type="text" name="degree" id="degree"/>
-                <br/>
-                <input type="submit" value="View Course Degree" name="viewcoursedegree"/>
-            </form>
-        </div>  
         <br/>
         <a href="index.jsp">Return to Main Menu</a>
 
-    </body>
-</html>
     </body>
 </html>

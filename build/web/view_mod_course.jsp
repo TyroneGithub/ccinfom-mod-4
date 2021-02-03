@@ -23,10 +23,18 @@
             <p>Record was not successfully retrieved</p>
         <% } else {
         %>       
-            <h4>Course Data: </h4>
-            <h5>Course id: <%= courseBean.courseid %></h5>
-            <h5>Course Name: <%= courseBean.coursename %></h5>
-            <h5>Department: <%= courseBean.department %></h5>
+            <h4>Showing Record of Course:<%= courseBean.courseid %></h4>
+            <div style="margin-left: 16px">
+                <h3>Modify Course</h3>
+                <form name="modcourse" action="mod_course.jsp" method="POST">
+                      <input type="hidden" id="courseid" name="courseid" value="<%= courseBean.courseid %>"> 
+                    Course Name: <input type="text" value="<%= courseBean.coursename %>" name="coursename" id="coursename"/>
+                    <br/>
+                    Department: <input type="text" value="<%= courseBean.department %>" name="department" id="department"/>
+                    <br/>                
+                    <input type="submit" value="Modify Course" name="modcourse"/>
+                </form>
+            </div>
             <% }
         %>
         <a href="coursemaintenance.jsp">Return to Course Maintenance</a><br/>

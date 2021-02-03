@@ -23,18 +23,11 @@
             <p>Record was not successfully retrieved</p>
         <% } else {
         %>       
-            <h4>Showing Record of :<%= studentsBean.studentid %></h4>
-            <div style="margin-left: 16px">
-                <h3>Modify Student</h3>
-                <form name="modstudent" action="mod_student.jsp" method="POST">
-                      <input type="hidden" id="studentid" name="studentid" value="<%= studentsBean.studentid %>"> 
-                    Complete Name: <input type="text" value="<%= studentsBean.completename %>" name="completename" id="completename"/>
-                    <br/>
-                    Degree ID: <input type="text" value="<%= studentsBean.degreeid %>" name="degreeid" id="degreeid"/>
-                    <br/>                
-                    <input type="submit" value="Modify Student" name="modstudent"/>
-                </form>
-            </div>
+            <h4>Student Record: </h4>
+            <h5>Student id:<%= studentsBean.studentid %></h5>
+            <h5>Name: <%= studentsBean.completename %></h5>            
+            <h5>Course: <%= studentsBean.degreeid %></h5>
+
             <% }
         %>
         <a href="studentmaintenance.jsp">Return to Student Maintenance</a><br/>
