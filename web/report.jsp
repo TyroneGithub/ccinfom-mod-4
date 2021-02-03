@@ -25,6 +25,8 @@
                 <input type="submit" value="Generate Report" name="generatereport"/>
             </form>
         </div>
+        <br/>
+        <a href="index.jsp">Return to Main Menu</a>
                 
     </body>
 </html>

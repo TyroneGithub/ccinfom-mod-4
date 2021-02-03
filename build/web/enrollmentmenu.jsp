@@ -20,7 +20,6 @@
             
         %>
         
-        <h1></h1>
         <div style="margin-left: 16px">
             <h3>Enrollment Menu</h3>
             <form name="enroll" action="enroll.jsp" method="POST">
@@ -34,6 +33,9 @@
                 <input type="submit" value="Proceed to Enrollment" name="enroll"/>
             </form>
         </div>
+        <br/>
+        <a href="index.jsp">Return to Main Menu</a>
+
                 
     </body>
 </html>

@@ -34,24 +34,54 @@
     </head>
     <body>
         <jsp:useBean id="dropBean" class="enrollment.drop" scope="session" />
-            
+        <jsp:useBean id="studentBean" class="enrollment.students" scope="session" />
+
         <%
-            if (dropBean.Student.studentid == 0){
-                dropBean.Student.studentid = Integer.parseInt(request.getParameter("studentid"));
-                dropBean.term =  Integer.parseInt(request.getParameter("term"));
-                dropBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
+            int result =0;
+            if (studentBean.studentid == 0){
+                studentBean.studentid = Integer.parseInt(request.getParameter("studentid"));
+                studentBean.viewRecord();
+                if(!studentBean.completename.equals("")){
+                    dropBean.Student.studentid = studentBean.studentid;
+                    dropBean.Student.degreeid = studentBean.degreeid; 
+                    dropBean.Student.completename = studentBean.completename;
+                    dropBean.term =  Integer.parseInt(request.getParameter("term"));
+                    dropBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
+                    result = dropBean.loadCourses();
+                } else{
+                    result = 3;
+                }
+
+            } else{
+                if (dropBean.DropList.size() > 0){
+                    result = 1;
+                }else{
+                    result = 2;
+                }
             }
-           
-            
-            
-            int result = dropBean.loadCourses();
+//            if (dropBean.Student.studentid == 0){
+//                dropBean.Student.studentid = Integer.parseInt(request.getParameter("studentid"));
+//                dropBean.term =  Integer.parseInt(request.getParameter("term"));
+//                dropBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
+//            }
+//           
+//            int result = dropBean.loadCourses();
             if (result==0) {%>       
                 <p>Record was not successfully retrieved.</p>
           <%} 
             else if (result == 2) {%>       
                 <p>You are not currently enrolled in any course.</p>
           <%} 
+            else if (result == 3) {%>       
+                <p>No student found</p>
+          <%} 
             else {%>   
+            <h3> Student Data: </h3>
+            
+            <h3> Student ID: <%= dropBean.Student.studentid %> </h3>
+            <h3> Name: <%= dropBean.Student.completename %> </h3>
+            <h3> Degree: <%= dropBean.Student.degreeid %> </h3>
+            
             <h3 style="text-align: center">Enrolled Courses</h3>
             <table style="width:100%">
                 <tr>

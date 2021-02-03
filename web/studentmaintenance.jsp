@@ -37,6 +37,8 @@
                 Student ID: <input type="text" name="studentid" id="studentid"/>
                 <input type="submit" value="View Student" name="viewstudent"/>
             </form>
-        </div>        
+        </div>   
+        <br/>
+        <a href="index.jsp">Return to Main Menu</a>
     </body>
 </html>

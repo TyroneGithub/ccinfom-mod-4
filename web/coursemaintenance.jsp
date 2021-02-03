@@ -69,6 +69,9 @@
                 <input type="submit" value="View Course Degree" name="viewcoursedegree"/>
             </form>
         </div>  
+        <br/>
+        <a href="index.jsp">Return to Main Menu</a>
+
     </body>
 </html>
     </body>

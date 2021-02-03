@@ -45,6 +45,7 @@
                 if (!studentBean.completename.equals("")){
                     enrollBean.Student.studentid = studentBean.studentid;
                     enrollBean.Student.degreeid = studentBean.degreeid; 
+                    enrollBean.Student.completename = studentBean.completename;
                     enrollBean.term =  Integer.parseInt(request.getParameter("term"));
                     enrollBean.schoolyear = Integer.parseInt(request.getParameter("startyear") + request.getParameter("endyear"));
                     result = enrollBean.loadCourses();
@@ -73,6 +74,11 @@
                 <p>No student found</p>
           <% 
             } else {%>   
+            <h3> Student Data: </h3>
+            <h3> Student ID: <%= enrollBean.Student.studentid %> </h3>
+            <h3> Name: <%= enrollBean.Student.completename %> </h3>
+            <h3> Degree: <%= enrollBean.Student.degreeid %> </h3>
+
             <h3 style="text-align: center">Available Courses</h3>
             <table style="width:100%">
                 <tr>
