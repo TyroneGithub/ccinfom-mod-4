@@ -76,6 +76,6 @@
                     %>
             </table>
         <br/>
-        <a href="dropmenu.jsp">Return to Drop Menu</a><br/>
+        <a href="drop.jsp">Return to Drop Menu</a><br/>
         </body>
 </html> 
